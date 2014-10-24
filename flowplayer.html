@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <title>MP4 RTMP-streaming : Flowplayer</title>
+</head>
+<body>
+<script src="/rtmp/flowplayer/flowplayer-3.2.13.min.js"></script>
+<a style="display:block;width:720px;height:480px;" id="player" style="cursor: pointer;">
+<img border=0 src="title.jpg" style="width:720px;height:480px;" alt="title image" />
+</a>
+<br clear="all" />
+
+<script>
+flowplayer("player", "http://192.168.2.120/rtmp/flowplayer/flowplayer-3.2.18.swf", {
+    plugins: {
+        rtmp: {
+            url: "http://192.168.2.120/rtmp/flowplayer.rtmp/flowplayer.rtmp-3.2.13.swf",
+            netConnectionUrl: 'rtmp://192.168.2.120/oflaDemo/'
+        }
+    },
+    clip: {
+        provider: 'rtmp',
+	live:true,
+        scaling: 'fit',
+        url: 'streamer',
+	accelerated: true,
+	bufferLength: 4,
+	autoBuffering: true
+    }
+});
+</script>
+</body>
+</html>
